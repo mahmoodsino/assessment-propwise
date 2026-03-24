@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Backgrounds */
+  --color-bg-emphasis: #E5E7EB;
+  --color-bg-default: #ffffff;
+  --color-bg-subtle: #F3F4F6;
+  --color-bg-muted: #F9FAFB;
+  --color-bg-inverted: #101010;
+  --color-bg-info: #dbeafe;
+  --color-bg-success: #dcfce7;
+  --color-bg-attention: #ffedd5;
+  --color-bg-error: #fee2e2;
+
+  /* Borders */
+  --color-border-emphasis: #9CA3AF;
+  --color-border-default: #D1D5DB;
+  --color-border-subtle: #E5E7EB;
+  --color-border-muted: #F3F4F6;
+
+  /* Content */
+  --color-content-emphasis: #101010;
+  --color-content-default: #374151;
+  --color-content-subtle: #6B7280;
+  --color-content-muted: #9CA3AF;
+  --color-content-inverted: #ffffff;
+  --color-content-info: #1e3a8a;
+  --color-content-success: #14532d;
+  --color-content-attention: #7c2d12;
+  --color-content-error: #7f1d1d;
+
+  /* Brand */
+  --color-brand-bg-emphasis: #12204C;
+  --color-brand-bg-default: #3567FF;
+  --color-brand-bg-subtle: #D7E1FF;
+}
+
+.dark {
+  /* Backgrounds */
+  --color-bg-emphasis: #404040;
+  --color-bg-default: #000000;
+  --color-bg-subtle: #2E2E2E;
+  --color-bg-muted: #1F1F1F;
+  --color-bg-inverted: #FCFCFD;
+  --color-bg-info: #1e3a8a;
+  --color-bg-success: #14532d;
+  --color-bg-attention: #7c2d12;
+  --color-bg-error: #7f1d1d;
+
+  /* Borders */
+  --color-border-emphasis: #757575;
+  --color-border-default: #575757;
+  --color-border-subtle: #404040;
+  --color-border-muted: #2E2E2E;
+
+  /* Content */
+  --color-content-emphasis: #FCFCFD;
+  --color-content-default: #D6D6D6;
+  --color-content-subtle: #A5A5A5;
+  --color-content-muted: #575757;
+  --color-content-inverted: #000000;
+  --color-content-info: #dbeafe;
+  --color-content-success: #dcfce7;
+  --color-content-attention: #ffedd5;
+  --color-content-error: #fee2e2;
+
+  /* Brand */
+  --color-brand-bg-emphasis: #D7E1FF;
+  --color-brand-bg-default: #3567FF;
+  --color-brand-bg-subtle: #12204C;
+}
+
+body {
+  background-color: var(--color-bg-muted);
+  font-family: "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
