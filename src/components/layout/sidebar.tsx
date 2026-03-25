@@ -215,7 +215,6 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
               size={13}
               className={cn(
                 "text-[var(--color-content-muted)] shrink-0 transition-transform duration-200",
-                profileOpen && dropdownVisible ? "rotate-90" : "",
               )}
             />
           </button>
