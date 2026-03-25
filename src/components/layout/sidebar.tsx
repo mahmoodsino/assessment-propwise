@@ -157,7 +157,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           "fixed inset-0 bg-black/50 z-30 lg:hidden transition-opacity duration-300",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+            : "opacity-0 pointer-events-none",
         )}
         onClick={onClose}
       />
@@ -167,7 +167,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           "fixed top-0 left-0 h-screen w-52 flex flex-col",
           "z-40 transition-transform duration-300 ease-in-out",
           "overflow-visible",
-          mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+          mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         )}
       >
         {/* ── Profile ── */}
@@ -213,7 +213,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
               size={13}
               className={cn(
                 "text-[var(--color-content-muted)] shrink-0 transition-transform duration-200",
-                profileOpen && dropdownVisible ? "rotate-90" : ""
+                profileOpen && dropdownVisible ? "rotate-90" : "",
               )}
             />
           </button>
@@ -223,14 +223,14 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
             <div
               ref={dropdownRef}
               className={cn(
-                "absolute left-[calc(100%+8px)] top-2 z-50",
-                "w-56 rounded-xl bg-[var(--color-bg-default)] overflow-hidden",
+                "absolute top-20 z-50",
+                "w-52 rounded-xl bg-[var(--color-bg-default)] overflow-hidden",
                 "border border-[var(--color-border-subtle)]",
                 "shadow-[0_8px_32px_rgba(0,0,0,0.10),0_2px_8px_rgba(0,0,0,0.06)]",
-                "transition-all duration-[180ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
+                "transition-all duration-[180ms] ",
                 dropdownVisible
                   ? "opacity-100 scale-100 translate-y-0"
-                  : "opacity-0 scale-95 -translate-y-1 pointer-events-none"
+                  : "opacity-0 scale-95 -translate-y-1 pointer-events-none",
               )}
               style={{ transformOrigin: "top left" }}
             >
@@ -335,7 +335,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                   "flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm mb-0.5",
                   active
                     ? "bg-[var(--color-brand-bg-subtle)] text-brand-700"
-                    : "text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)]"
+                    : "text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)]",
                 )}
               >
                 <span
@@ -370,7 +370,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                       "flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-[13px] font-medium transition-colors mb-0.5",
                       active
                         ? "bg-[var(--color-content-default)] text-[var(--color-brand-bg-default)]"
-                        : "text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)]"
+                        : "text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)]",
                     )}
                   >
                     <span
@@ -413,7 +413,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                   "flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-[13px] font-medium transition-colors mb-0.5",
                   active
                     ? "bg-[var(--color-content-default)] text-[var(--color-brand-bg-default)]"
-                    : "text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)]"
+                    : "text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)]",
                 )}
               >
                 <span

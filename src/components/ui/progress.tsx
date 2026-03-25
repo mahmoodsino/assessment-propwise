@@ -4,8 +4,9 @@ import * as React from "react";
 import { Progress as ProgressPrimitive } from "radix-ui";
 import { cn } from "@/lib/utils";
 
-interface ProgressProps
-  extends React.ComponentProps<typeof ProgressPrimitive.Root> {
+interface ProgressProps extends React.ComponentProps<
+  typeof ProgressPrimitive.Root
+> {
   value?: number;
   color?: string;
 }
@@ -16,7 +17,7 @@ function Progress({ className, value = 0, color, ...props }: ProgressProps) {
       data-slot="progress"
       className={cn(
         "relative flex h-2 w-full overflow-hidden rounded-full bg-[var(--color-bg-subtle)]",
-        className
+        className,
       )}
       {...props}
     >
@@ -61,7 +62,7 @@ function PipelineBar({
     },
     green: {
       bar: "bg-emerald-100",
-      badge: "bg-white/20 text-blake",
+      badge: "bg-white/20 text-black",
       text: "text-emerald-700",
     },
   } as const;
@@ -74,7 +75,7 @@ function PipelineBar({
       className={cn(
         "h-9 rounded-lg flex items-center px-1.5 gap-2 transition-all duration-500",
         s.bar,
-        className
+        className,
       )}
       style={{ width: `${widthPct}%` }}
       role="progressbar"
@@ -86,7 +87,7 @@ function PipelineBar({
       <div
         className={cn(
           "flex items-center gap-1 rounded-lg px-2 py-0.5 leading-none shrink-0 text-[11px]",
-          s.badge
+          s.badge,
         )}
       >
         <span className={cn("font-bold")}>{count}</span>

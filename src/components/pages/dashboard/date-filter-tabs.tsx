@@ -50,7 +50,7 @@ export function DateFilterTabs({ value, onChange }: DateFilterTabsProps) {
             "focus:outline-none focus-visible:ring-2",
             value === tab.value
               ? "bg-[var(--color-bg-default)] text-[var(--color-content-default)] font-medium shadow-sm"
-              : "text-[var(--color-content-muted)] hover:text-[var(--color-content-subtle)] hover:bg-[var(--color-bg-default)]/50"
+              : "text-[var(--color-content-muted)] hover:text-[var(--color-content-subtle)] hover:bg-[var(--color-bg-emphasis)]",
           )}
         >
           {tab.label}
