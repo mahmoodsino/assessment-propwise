@@ -154,7 +154,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
       {/* Mobile overlay */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/50 z-30 lg:hidden transition-opacity duration-300",
+          "fixed inset-0 bg-black/50 z-30 sm:hidden transition-opacity duration-300",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none",
@@ -167,7 +167,9 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           "fixed top-0 left-0 h-screen w-52 flex flex-col",
           "z-40 transition-transform duration-300 ease-in-out",
           "overflow-visible",
-          mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
+          mobileOpen
+            ? "translate-x-0 bg-[var(--color-bg-muted)]"
+            : "-translate-x-full sm:translate-x-0",
         )}
       >
         {/* ── Profile ── */}
@@ -435,7 +437,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
         <Button
           variant="ghost"
           size="icon-sm"
-          className="absolute top-3 right-3 lg:hidden"
+          className="absolute top-3 right-3 sm:hidden"
           onClick={onClose}
         >
           <X size={14} />

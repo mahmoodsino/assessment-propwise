@@ -1,26 +1,57 @@
 "use client";
 
-import { Menu, Plus } from "lucide-react";
+import { Menu, Plus, WifiOff } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
-interface DashboardHeaderProps {
+interface Props {
   onMenuClick?: () => void;
+  onSimulateError?: () => void;
 }
 
-export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
-  return (
-    <div className="flex items-center justify-between gap-4 bg-[var(--color-bg-default)] pt-4">
-      <div className="flex items-center gap-3">
+export function DashboardHeader({ onMenuClick, onSimulateError }: Props) {
+  const actions = (
+    <div className="flex items-center gap-2 shrink-0">
+      <ThemeToggle />
+      {onSimulateError && (
         <Button
           variant="ghost"
           size="icon"
-          className="lg:hidden"
-          onClick={onMenuClick}
+          onClick={onSimulateError}
+          title="Simulate API failure"
         >
-          <Menu size={18} />
+          <WifiOff size={15} />
         </Button>
+      )}
+      <Button
+        variant="brand"
+        size="default"
+        onClick={() => toast("Feature coming soon")}
+      >
+        <Plus size={14} />
+        Create
+      </Button>
+    </div>
+  );
+
+  return (
+    <div className="flex items-center justify-between gap-4 bg-[var(--color-bg-default)] pt-4">
+      <div className="flex flex-col tablet-s:flex-row tablet-s:items-center gap-2 w-full">
+        {/* Mobile top row — hamburger + actions */}
+        <div className="tablet-s:flex-none flex justify-between items-center">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="sm:hidden border"
+            onClick={onMenuClick}
+          >
+            <Menu size={18} />
+          </Button>
+          <div className="flex tablet-s:hidden">{actions}</div>
+        </div>
+
+        {/* Title */}
         <div>
           <h1 className="text-lg font-bold text-[var(--color-content-emphasis)] tracking-tight">
             Dashboard
@@ -30,17 +61,9 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-2 shrink-0">
-        <ThemeToggle />
-        <Button
-          variant="brand"
-          size="default"
-          onClick={() => toast("Feature coming soon")}
-        >
-          <Plus size={14} />
-          Create
-        </Button>
-      </div>
+
+      {/* Desktop actions */}
+      <div className="hidden tablet-s:flex">{actions}</div>
     </div>
   );
 }

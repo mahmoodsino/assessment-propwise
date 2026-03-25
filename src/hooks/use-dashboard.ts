@@ -44,7 +44,7 @@ export function useDashboard() {
         setIsLoading(false);
       }
     },
-    [setData, setIsLoading, setHasError]
+    [setData, setIsLoading, setHasError],
   );
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export function useDashboard() {
       setActivePeriod(period);
       load(period, true);
     },
-    [setActivePeriod, load]
+    [setActivePeriod, load],
   );
 
   return { activePeriod, changePeriod, isLoading, hasError, reload: load };

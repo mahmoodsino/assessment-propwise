@@ -46,7 +46,7 @@ export function RevenueForecast({ className }: { className?: string }) {
           </p>
 
           {/* Value + trend */}
-          <div className="flex items-baseline gap-2 mt-1">
+          <div className="flex items-baseline gap-2 mt-1 flex-wrap">
             <p className="text-[28px] font-bold text-[var(--color-content-emphasis)] tabular-nums tracking-tight leading-none">
               {revenue.total}
             </p>

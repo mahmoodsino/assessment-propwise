@@ -8,6 +8,18 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      // Mobile
+      mobile: "380px",
+      // Tablet
+      "tablet-s": "744px",
+      "tablet-m": "834px",
+      // Desktop
+      sm: "1280px",
+      md: "1440px",
+      lg: "1680px",
+      xl: "2000px",
+    },
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],

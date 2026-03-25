@@ -10,7 +10,7 @@ export function KpiCards() {
 
   if (isLoading || !data) {
     return (
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
@@ -27,7 +27,7 @@ export function KpiCards() {
   }
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+    <div className="grid grid-cols-1 tablet-s:grid-cols-2 sm:grid-cols-4 gap-3">
       {data.kpis.map((kpi) => (
         <KpiCard key={kpi.label} kpi={kpi} />
       ))}

@@ -34,7 +34,7 @@ export function KpiCard({ kpi }: KpiCardProps) {
           <div
             className={cn(
               "flex items-center gap-0.5 text-[10px] font-semibold",
-              isUp ? "text-emerald-500" : "text-red-500"
+              isUp ? "text-emerald-500" : "text-red-500",
             )}
           >
             {isUp ? <TrendingUp size={11} /> : <TrendingDown size={11} />}

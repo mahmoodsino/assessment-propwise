@@ -1,6 +1,7 @@
 "use client";
 
 import { useAtomValue } from "jotai";
+import { useEffect, useState } from "react";
 import { dashboardDataAtom, isLoadingAtom } from "@/store";
 import { formatCurrency, cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
@@ -9,7 +10,6 @@ import { ArrowUpRight } from "lucide-react";
 
 type StageVariant = "navy" | "muted" | "green";
 
-// Maps stage index to bar style and label color
 const stageVariants: StageVariant[] = [
   "navy",
   "muted",
@@ -18,6 +18,7 @@ const stageVariants: StageVariant[] = [
   "green",
   "green",
 ];
+
 const stageLabelClass = (v: StageVariant) =>
   v === "muted"
     ? "text-[var(--color-content-muted)]"
@@ -26,6 +27,13 @@ const stageLabelClass = (v: StageVariant) =>
 export function PipelineSummary() {
   const data = useAtomValue(dashboardDataAtom);
   const isLoading = useAtomValue(isLoadingAtom);
+
+  const [animated, setAnimated] = useState(false);
+  useEffect(() => {
+    if (!data) return;
+    const t = setTimeout(() => setAnimated(true), 100);
+    return () => clearTimeout(t);
+  }, [data]);
 
   if (isLoading || !data) {
     return (
@@ -71,24 +79,29 @@ export function PipelineSummary() {
         </a>
       </div>
 
-      <div className="px-5 pb-5 space-y-2">
+      <div className="px-5 pb-5 space-y-5">
         {pipeline.stages.map((stage, i) => {
           const variant = stageVariants[i] ?? "navy";
           const widthPct = Math.max((stage.count / maxCount) * 100, 10);
 
           return (
-            <div key={stage.stage} className="flex items-center gap-3">
+            <div
+              key={stage.stage}
+              className="flex flex-col tablet-s:flex-row tablet-s:items-center tablet-s:gap-3"
+              // Stagger each bar entrance by 80ms
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
               <span
                 className={cn(
-                  "text-xs font-medium w-24 shrink-0 text-right",
-                  stageLabelClass(variant)
+                  "text-xs font-medium tablet-s:w-24 shrink-0 tablet-s:text-right",
+                  stageLabelClass(variant),
                 )}
               >
                 {stage.stage}
               </span>
               <div className="flex-1">
                 <PipelineBar
-                  value={widthPct}
+                  value={animated ? widthPct : 0}
                   count={stage.count}
                   label={formatCurrency(stage.value, stage.currency)}
                   variant={variant}

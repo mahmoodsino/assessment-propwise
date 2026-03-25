@@ -1,7 +1,6 @@
 export * from "./activity-entry";
 export * from "./activity-feed";
 export * from "./dashboard-header";
-export * from "./dashboard-skeleton";
 export * from "./date-filter-tabs";
 export * from "./kpi-card";
 export * from "./pipeline-summary";
