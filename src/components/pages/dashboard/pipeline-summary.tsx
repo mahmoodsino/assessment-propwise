@@ -4,8 +4,8 @@ import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 import { dashboardDataAtom, isLoadingAtom } from "@/store";
 import { formatCurrency, cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-import { PipelineBar } from "@/components/ui/progress";
+import { Card } from "@/components/ui";
+import { PipelineBar } from "@/components/ui";
 import { ArrowUpRight } from "lucide-react";
 
 type StageVariant = "navy" | "muted" | "green";

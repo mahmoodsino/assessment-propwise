@@ -10,8 +10,8 @@ import {
   tasksAtom,
   taskProgressAtom,
 } from "@/store";
-import { Card } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Card } from "@/components/ui";
+import { Progress } from "@/components/ui";
 import { TaskItem } from "./task-item";
 
 export function TasksPanel() {
@@ -56,12 +56,11 @@ export function TasksPanel() {
     }
   };
 
-  const pct =
+  const totalProgress =
     progress.total > 0 ? (progress.completed / progress.total) * 100 : 0;
 
   return (
     <Card className="p-0 gap-0">
-      {/* Header */}
       <div className="flex items-center justify-between px-4 pt-4 pb-3">
         <p className="font-bold text-[var(--color-content-emphasis)]">
           Tasks & Reminders
@@ -72,15 +71,13 @@ export function TasksPanel() {
         </button>
       </div>
 
-      {/* Progress */}
       <div className="px-4 pb-3">
-        <Progress value={pct} color="#3C7E44" className="h-1" />
+        <Progress value={totalProgress} color="#3C7E44" className="h-1" />
         <p className="text-[11px] text-[var(--color-content-muted)] text-right mt-1">
           {progress.completed}/{progress.total} done
         </p>
       </div>
 
-      {/* Tasks */}
       <div className="pb-2">
         {tasks.map((task, i) => (
           <div key={task.id}>
