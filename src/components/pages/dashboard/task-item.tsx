@@ -44,10 +44,9 @@ export function TaskItem({ task, onToggle }: Props) {
       className={cn(
         "flex items-start gap-3 px-4 py-3 transition-colors",
         !task.isOverdue && "hover:bg-[var(--color-bg-subtle)]",
-        task.completed && "opacity-50"
+        task.completed && "opacity-50",
       )}
     >
-      {/* Checkbox */}
       <button
         onClick={() => onToggle(task.id)}
         className="mt-0.5 shrink-0 text-[var(--color-content-muted)] hover:text-[var(--color-brand-bg-default)] transition-colors"
@@ -62,12 +61,11 @@ export function TaskItem({ task, onToggle }: Props) {
         )}
       </button>
 
-      {/* Content */}
       <div className="flex-1 min-w-0">
         <p
           className={cn(
             "text-[13px] font-medium text-[var(--color-content-emphasis)] leading-snug",
-            task.completed && "line-through text-[var(--color-content-muted)]"
+            task.completed && "line-through text-[var(--color-content-muted)]",
           )}
         >
           {task.title}
@@ -96,7 +94,7 @@ export function TaskItem({ task, onToggle }: Props) {
           <span
             className={cn(
               "inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium",
-              typeColor[task.type]
+              typeColor[task.type],
             )}
           >
             {typeIcon[task.type]}
@@ -105,12 +103,11 @@ export function TaskItem({ task, onToggle }: Props) {
         </div>
       </div>
 
-      {/* Priority — only show if not completed */}
       {!task.completed && task.priority && (
         <span
           className={cn(
             "text-[12px] font-semibold shrink-0 mt-0.5",
-            priorityColor[task.priority]
+            priorityColor[task.priority],
           )}
         >
           {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}

@@ -9,7 +9,6 @@ import { Card } from "@/components/ui/card";
 import { ActivityEntry } from "./activity-entry";
 import type { ActivityEntry as ActivityEntryType } from "@/types/dashboard";
 
-// Simulated new entries that get prepended on refresh
 const newEntries: ActivityEntryType[] = [
   {
     id: "new-1",
@@ -43,7 +42,6 @@ export function ActivityFeed({ className }: { className?: string }) {
   const data = useAtomValue(dashboardDataAtom);
   const isLoading = useAtomValue(isLoadingAtom);
 
-  // Local state to hold prepended entries
   const [liveEntries, setLiveEntries] = useState<ActivityEntryType[]>([]);
 
   useEffect(() => {
@@ -53,7 +51,6 @@ export function ActivityFeed({ className }: { className?: string }) {
       const next = newEntries[newEntryIndex % newEntries.length];
       newEntryIndex++;
 
-      // Prepend new entry with a unique id each time
       setLiveEntries((prev) => [
         { ...next, id: `live-${Date.now()}`, relativeTime: "Just now" },
         ...prev.slice(0, 2),
@@ -87,12 +84,10 @@ export function ActivityFeed({ className }: { className?: string }) {
 
   return (
     <Card className={cn("p-0 gap-0 flex flex-col", className)}>
-      {/* Title */}
       <div className="px-4 pt-4 pb-3 shrink-0 flex items-center justify-between">
         <p className="font-semibold text-[var(--color-content-emphasis)]">
           Activity Feed
         </p>
-        {/* Live indicator */}
         <div className="flex items-center gap-1.5">
           <span
             className={cn(
@@ -105,9 +100,7 @@ export function ActivityFeed({ className }: { className?: string }) {
         </div>
       </div>
 
-      {/* Scrollable groups */}
       <div className="flex-1 overflow-y-auto">
-        {/* Live entries — prepended at top */}
         {liveEntries.length > 0 && (
           <div>
             <div className="px-4 py-1.5 bg-[var(--color-bg-subtle)] sticky top-0 z-10">
@@ -116,18 +109,17 @@ export function ActivityFeed({ className }: { className?: string }) {
               </p>
             </div>
             <div className="px-4 pt-3 pb-1">
-              {liveEntries.map((entry, ei) => (
+              {liveEntries.map((entry, i) => (
                 <ActivityEntry
                   key={entry.id}
                   entry={entry}
-                  isLast={ei === liveEntries.length - 1}
+                  isLast={i === liveEntries.length - 1}
                 />
               ))}
             </div>
           </div>
         )}
 
-        {/* Original groups */}
         {activities.groups.map((group) => (
           <div key={group.label}>
             <div className="px-4 py-1.5 bg-[var(--color-bg-subtle)] sticky top-0 z-10">
@@ -148,7 +140,6 @@ export function ActivityFeed({ className }: { className?: string }) {
         ))}
       </div>
 
-      {/* Footer */}
       <div className="border-t border-[var(--color-border-subtle)] px-4 py-3 text-center shrink-0">
         <a
           href="#"

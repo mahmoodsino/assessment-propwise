@@ -4,14 +4,13 @@ import * as React from "react";
 import { Avatar as AvatarPrimitive } from "radix-ui";
 import { cn } from "@/lib/utils";
 
-// Size map matching design system: 24, 32, 40, 48, 64, 80px
 const avatarSizeClasses = {
-  xs: "size-6  text-[9px]", // 24px
-  sm: "size-8  text-[11px]", // 32px
-  md: "size-10 text-[13px]", // 40px
-  lg: "size-12 text-[14px]", // 48px
-  xl: "size-16 text-[16px]", // 64px
-  "2xl": "size-20 text-[18px]", // 80px
+  xs: "size-6  text-[9px]",
+  sm: "size-8  text-[11px]",
+  md: "size-10 text-[13px]",
+  lg: "size-12 text-[14px]",
+  xl: "size-16 text-[16px]",
+  "2xl": "size-20 text-[18px]",
 } as const;
 
 type AvatarSize = keyof typeof avatarSizeClasses;
@@ -30,7 +29,7 @@ function Avatar({
       className={cn(
         "relative inline-flex items-center justify-center rounded-full shrink-0",
         avatarSizeClasses[size],
-        className
+        className,
       )}
       {...props}
     />
@@ -46,7 +45,7 @@ function AvatarImage({
       data-slot="avatar-image"
       className={cn(
         "aspect-square w-full h-full rounded-full object-cover overflow-hidden",
-        className
+        className,
       )}
       {...props}
     />
@@ -64,7 +63,7 @@ function AvatarFallback({
       className={cn(
         "flex items-center justify-center w-full h-full rounded-full",
         "bg-[var(--color-bg-subtle)] text-[var(--color-content-default)] font-semibold",
-        className
+        className,
       )}
       {...props}
     >
@@ -73,7 +72,6 @@ function AvatarFallback({
   );
 }
 
-// Small status/notification badge anchored to bottom-right of avatar
 function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -81,14 +79,13 @@ function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
       className={cn(
         "absolute -right-1 -bottom-1 inline-flex items-center justify-center border border-[var(--color-border-subtle)]",
         "rounded-full bg-white p-0.5 ring-[var(--color-bg-default)] select-none",
-        className
+        className,
       )}
       {...props}
     />
   );
 }
 
-// Overlapping avatar group  — e.g. 3 avatars stacked
 function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -96,14 +93,13 @@ function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
       className={cn(
         "flex items-center -space-x-2",
         "[&>[data-slot=avatar]]:ring-2 [&>[data-slot=avatar]]:ring-[var(--color-bg-default)]",
-        className
+        className,
       )}
       {...props}
     />
   );
 }
 
-// The +N overflow pill shown when avatars are truncated
 function AvatarGroupCount({
   className,
   ...props
@@ -116,9 +112,8 @@ function AvatarGroupCount({
         "bg-[var(--color-bg-subtle)] text-[var(--color-content-subtle)]",
         "text-[11px] font-semibold",
         "ring-2 ring-[var(--color-bg-default)]",
-        // Inherit size from sibling avatars via group
         "size-8",
-        className
+        className,
       )}
       {...props}
     />

@@ -19,7 +19,7 @@ const stageVariants: StageVariant[] = [
   "green",
 ];
 
-const stageLabelClass = (v: StageVariant) =>
+const stageLabelStyle = (v: StageVariant) =>
   v === "muted"
     ? "text-[var(--color-content-muted)]"
     : "text-[var(--color-content-default)]";
@@ -82,7 +82,9 @@ export function PipelineSummary() {
       <div className="px-5 pb-5 space-y-5">
         {pipeline.stages.map((stage, i) => {
           const variant = stageVariants[i] ?? "navy";
-          const widthPct = Math.max((stage.count / maxCount) * 100, 10);
+          console.log({ variant });
+
+          const widthPipeline = Math.max((stage.count / maxCount) * 100, 10);
 
           return (
             <div
@@ -94,14 +96,14 @@ export function PipelineSummary() {
               <span
                 className={cn(
                   "text-xs font-medium tablet-s:w-24 shrink-0 tablet-s:text-right",
-                  stageLabelClass(variant),
+                  stageLabelStyle(variant),
                 )}
               >
                 {stage.stage}
               </span>
               <div className="flex-1">
                 <PipelineBar
-                  value={animated ? widthPct : 0}
+                  value={animated ? widthPipeline : 0}
                   count={stage.count}
                   label={formatCurrency(stage.value, stage.currency)}
                   variant={variant}

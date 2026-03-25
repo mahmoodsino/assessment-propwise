@@ -38,7 +38,6 @@ export function DashboardHeader({ onMenuClick, onSimulateError }: Props) {
   return (
     <div className="flex items-center justify-between gap-4 bg-[var(--color-bg-default)] pt-4">
       <div className="flex flex-col tablet-s:flex-row tablet-s:items-center gap-2 w-full">
-        {/* Mobile top row — hamburger + actions */}
         <div className="tablet-s:flex-none flex justify-between items-center">
           <Button
             variant="ghost"
@@ -51,7 +50,6 @@ export function DashboardHeader({ onMenuClick, onSimulateError }: Props) {
           <div className="flex tablet-s:hidden">{actions}</div>
         </div>
 
-        {/* Title */}
         <div>
           <h1 className="text-lg font-bold text-[var(--color-content-emphasis)] tracking-tight">
             Dashboard
@@ -62,7 +60,6 @@ export function DashboardHeader({ onMenuClick, onSimulateError }: Props) {
         </div>
       </div>
 
-      {/* Desktop actions */}
       <div className="hidden tablet-s:flex">{actions}</div>
     </div>
   );

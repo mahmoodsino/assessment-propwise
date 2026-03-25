@@ -67,33 +67,31 @@ function PipelineBar({
     },
   } as const;
 
-  const s = styles[variant];
-  const widthPct = Math.max(value, 10);
+  const PipelineStyle = styles[variant];
+  const widthPipeline = Math.max(value, 10);
 
   return (
     <div
       className={cn(
         "h-9 rounded-lg flex items-center px-1.5 gap-2 transition-all duration-500",
-        s.bar,
+        PipelineStyle.bar,
         className,
       )}
-      style={{ width: `${widthPct}%` }}
+      style={{ width: `${widthPipeline}%` }}
       role="progressbar"
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={100}
     >
-      {/* Count badge */}
       <div
         className={cn(
           "flex items-center gap-1 rounded-lg px-2 py-0.5 leading-none shrink-0 text-[11px]",
-          s.badge,
+          PipelineStyle.badge,
         )}
       >
         <span className={cn("font-bold")}>{count}</span>
         <span className={cn("font-medium")}>{label}</span>
       </div>
-      {/* Value label */}
     </div>
   );
 }

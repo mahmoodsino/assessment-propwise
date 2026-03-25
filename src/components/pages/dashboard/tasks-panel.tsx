@@ -42,7 +42,7 @@ export function TasksPanel() {
   }
 
   const handleToggle = (id: string) => {
-    const task = tasks.find((t) => t.id === id);
+    const task = tasks.find((task) => task.id === id);
     if (!task) return;
     const newCompleted = !task.completed;
     setOverrides((prev) => ({ ...prev, [id]: newCompleted }));

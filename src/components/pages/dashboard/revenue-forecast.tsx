@@ -40,12 +40,10 @@ export function RevenueForecast({ className }: { className?: string }) {
       {/* Header */}
       <div className="flex items-start justify-between px-5 pt-4 pb-2">
         <div>
-          {/* Title row */}
           <p className="text-sm text-[var(--color-content-subtle)]">
             Revenue Forecast
           </p>
 
-          {/* Value + trend */}
           <div className="flex items-baseline gap-2 mt-1 flex-wrap">
             <p className="text-[28px] font-bold text-[var(--color-content-emphasis)] tabular-nums tracking-tight leading-none">
               {revenue.total}
@@ -58,10 +56,8 @@ export function RevenueForecast({ className }: { className?: string }) {
             </span>
           </div>
 
-          {/* Legend */}
           <div className="flex items-center gap-4 mt-2.5">
             <span className="flex items-center gap-1.5 font-medium text-[11px] text-[var(--color-content-subtle)]">
-              {/* Solid line indicator */}
               <svg width="16" height="8" viewBox="0 0 16 8">
                 <line
                   x1="0"
@@ -76,7 +72,6 @@ export function RevenueForecast({ className }: { className?: string }) {
               This year
             </span>
             <span className="flex items-center gap-1.5 text-[11px] font-medium text-[var(--color-content-subtle)]">
-              {/* Solid gray line indicator */}
               <svg width="16" height="8" viewBox="0 0 16 8">
                 <line
                   x1="0"
@@ -93,7 +88,6 @@ export function RevenueForecast({ className }: { className?: string }) {
           </div>
         </div>
 
-        {/* Report link */}
         <a
           href="#"
           className="text-xs font-semibold text-[var(--color-brand-bg-default)] hover:underline flex items-center gap-0.5 mt-0.5 shrink-0"
@@ -103,7 +97,6 @@ export function RevenueForecast({ className }: { className?: string }) {
         </a>
       </div>
 
-      {/* Chart */}
       <div className="px-1 pb-2">
         <ResponsiveContainer width="100%" height={200}>
           <AreaChart

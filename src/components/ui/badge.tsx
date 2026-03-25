@@ -8,30 +8,21 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        // Brand — blue fill
         default:
           "bg-[var(--color-brand-bg-default)] text-[var(--color-content-inverted)]",
-        // Subtle brand — light blue bg
         brand:
           "bg-[var(--color-brand-bg-subtle)] text-[var(--color-brand-bg-default)]",
-        // Success — green
         success:
           "bg-[var(--color-bg-success)] text-[var(--color-content-success)]",
-        // Error — red
         destructive:
           "bg-[var(--color-bg-error)] text-[var(--color-content-error)]",
-        // Warning — amber
         warning:
           "bg-[var(--color-bg-attention)] text-[var(--color-content-attention)]",
-        // Info — blue
         info: "bg-[var(--color-bg-info)] text-[var(--color-content-info)]",
-        // Outline — border only
         outline:
           "border-[var(--color-border-default)] text-[var(--color-content-default)] bg-transparent",
-        // Subtle gray
         secondary:
           "bg-[var(--color-bg-subtle)] text-[var(--color-content-subtle)]",
-        // Ghost
         ghost:
           "text-[var(--color-content-subtle)] hover:bg-[var(--color-bg-subtle)]",
       },
