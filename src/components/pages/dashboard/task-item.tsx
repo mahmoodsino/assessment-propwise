@@ -10,8 +10,8 @@ import {
   Clock,
   AlertTriangle,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import type { Task } from "@/types/dashboard";
+import { cn } from "@/lib";
+import type { Task } from "@/types";
 
 const typeIcon = {
   task: <FileText size={11} />,

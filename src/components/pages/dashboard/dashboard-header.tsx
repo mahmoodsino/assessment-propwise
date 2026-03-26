@@ -2,8 +2,8 @@
 
 import { Menu, Plus, WifiOff } from "lucide-react";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { Button } from "@/components/ui";
+import { ThemeToggle } from "@/components/ui";
 
 interface Props {
   onMenuClick?: () => void;

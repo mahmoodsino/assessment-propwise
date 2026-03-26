@@ -20,10 +20,8 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar — hidden off-screen on mobile, always visible on lg+ */}
       <Sidebar mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      {/* Main content — no left padding on mobile, sidebar-width padding on desktop */}
       <div className="flex-1 min-w-0 sm:ml-52 sm:m-3 sm:rounded-xl bg-[var(--color-bg-default)]">
         <main className="p-4 md:p-6 max-w-[1600px] mx-auto space-y-5">
           <DashboardHeader
@@ -33,7 +31,7 @@ export default function DashboardPage() {
           <DateFilterTabs value={activePeriod} onChange={changePeriod} />
           <KpiCards />
           <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-stretch">
-            <div className="tab sm:col-span-3">
+            <div className="sm:col-span-3">
               <RevenueForecast />
             </div>
             <div className="sm:col-span-2 flex">
@@ -51,7 +49,6 @@ export default function DashboardPage() {
           </div>
         </main>
       </div>
-
       <Toaster />
     </div>
   );

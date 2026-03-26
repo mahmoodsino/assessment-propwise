@@ -4,10 +4,10 @@ import { ArrowUpRight } from "lucide-react";
 import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 import { dashboardDataAtom, isLoadingAtom } from "@/store";
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
+import { cn } from "@/lib";
+import { Card } from "@/components/ui";
 import { ActivityEntry } from "./activity-entry";
-import type { ActivityEntry as ActivityEntryType } from "@/types/dashboard";
+import type { ActivityEntry as ActivityEntryType } from "@/types";
 
 const newEntries: ActivityEntryType[] = [
   {
@@ -48,8 +48,9 @@ export function ActivityFeed({ className }: { className?: string }) {
     if (!data) return;
 
     const interval = setInterval(() => {
-      const next = newEntries[newEntryIndex % newEntries.length];
+      const next = newEntries[newEntryIndex];
       newEntryIndex++;
+      if (newEntryIndex >= newEntries.length) newEntryIndex = 0;
 
       setLiveEntries((prev) => [
         { ...next, id: `live-${Date.now()}`, relativeTime: "Just now" },

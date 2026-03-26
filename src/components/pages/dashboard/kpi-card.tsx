@@ -1,8 +1,8 @@
 "use client";
 
 import { TrendingDown, TrendingUp } from "lucide-react";
-import { cn } from "@/lib/utils";
-import type { DashboardKPI } from "@/types/dashboard";
+import { cn } from "@/lib";
+import type { DashboardKPI } from "@/types";
 import { SparklineChart } from "./sparkline-chart";
 
 interface KpiCardProps {

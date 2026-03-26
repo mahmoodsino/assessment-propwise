@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib";
 
 function Card({
   className,
@@ -18,7 +18,7 @@ function Card({
         "bg-[var(--color-bg-default)]",
         "p-4 text-sm",
         "data-[size=sm]:p-3",
-        className
+        className,
       )}
       {...props}
     />
@@ -41,7 +41,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card-title"
       className={cn(
         "text-[13px] font-semibold text-[var(--color-content-emphasis)]",
-        className
+        className,
       )}
       {...props}
     />
@@ -54,7 +54,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card-description"
       className={cn(
         "text-[12px] text-[var(--color-content-subtle)]",
-        className
+        className,
       )}
       {...props}
     />
@@ -73,7 +73,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card-footer"
       className={cn(
         "flex items-center justify-end pt-3 border-t border-[var(--color-border-subtle)]",
-        className
+        className,
       )}
       {...props}
     />

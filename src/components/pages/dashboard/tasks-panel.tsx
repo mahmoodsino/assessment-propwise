@@ -41,10 +41,13 @@ export function TasksPanel() {
     );
   }
 
+  console.log({ overrides });
+
   const handleToggle = (id: string) => {
     const task = tasks.find((task) => task.id === id);
     if (!task) return;
     const newCompleted = !task.completed;
+
     setOverrides((prev) => ({ ...prev, [id]: newCompleted }));
     if (newCompleted) {
       toast.success("Task completed", {

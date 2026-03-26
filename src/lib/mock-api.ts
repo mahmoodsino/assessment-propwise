@@ -1,4 +1,4 @@
-import type { DashboardData, Period } from "@/types/dashboard";
+import type { DashboardData, Period } from "@/types";
 import { mockDataByPeriod } from "./mock-data";
 
 const delay = () =>

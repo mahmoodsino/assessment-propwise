@@ -1,7 +1,7 @@
 "use client";
 
 import { TrendingUp, ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib";
 import {
   Area,
   AreaChart,
@@ -37,7 +37,6 @@ export function RevenueForecast({ className }: { className?: string }) {
 
   return (
     <Card className={cn("gap-0 p-0 h-full flex flex-col", className)}>
-      {/* Header */}
       <div className="flex items-start justify-between px-5 pt-4 pb-2">
         <div>
           <p className="text-sm text-[var(--color-content-subtle)]">
@@ -167,7 +166,6 @@ export function RevenueForecast({ className }: { className?: string }) {
               cursor={{ stroke: "var(--color-border-default)", strokeWidth: 1 }}
             />
 
-            {/* Last year — solid gray */}
             <Area
               type="monotone"
               dataKey="lastYear"
@@ -177,7 +175,6 @@ export function RevenueForecast({ className }: { className?: string }) {
               dot={false}
             />
 
-            {/* This year — solid brand blue */}
             <Area
               type="monotone"
               dataKey="thisYear"

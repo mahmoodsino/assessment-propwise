@@ -1,4 +1,4 @@
-import type { DashboardData, Period } from "@/types/dashboard";
+import type { DashboardData, Period } from "@/types";
 
 const now = Date.now();
 const hoursAgo = (h: number) => new Date(now - h * 3600000).toISOString();
@@ -203,7 +203,7 @@ function mutate(data: DashboardData, multiplier: number): DashboardData {
     kpis: data.kpis.map((k) => ({
       ...k,
       sparklineData: k.sparklineData.map((v) =>
-        Math.round(v * multiplier * (0.85 + Math.random() * 0.3))
+        Math.round(v * multiplier * (0.85 + Math.random() * 0.3)),
       ),
     })),
     revenue: {

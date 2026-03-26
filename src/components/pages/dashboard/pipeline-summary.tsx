@@ -3,7 +3,7 @@
 import { useAtomValue } from "jotai";
 import { useEffect, useState } from "react";
 import { dashboardDataAtom, isLoadingAtom } from "@/store";
-import { formatCurrency, cn } from "@/lib/utils";
+import { formatCurrency, cn } from "@/lib";
 import { Card } from "@/components/ui";
 import { PipelineBar } from "@/components/ui";
 import { ArrowUpRight } from "lucide-react";
@@ -31,8 +31,8 @@ export function PipelineSummary() {
   const [animated, setAnimated] = useState(false);
   useEffect(() => {
     if (!data) return;
-    const t = setTimeout(() => setAnimated(true), 100);
-    return () => clearTimeout(t);
+    const animationTime = setTimeout(() => setAnimated(true), 100);
+    return () => clearTimeout(animationTime);
   }, [data]);
 
   if (isLoading || !data) {
@@ -90,7 +90,6 @@ export function PipelineSummary() {
             <div
               key={stage.stage}
               className="flex flex-col tablet-s:flex-row tablet-s:items-center tablet-s:gap-3"
-              // Stagger each bar entrance by 80ms
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <span

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slot } from "radix-ui";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib";
 
 const variants = {
   default: "bg-[var(--color-brand-bg-default)] text-white hover:bg-brand-700",
@@ -52,7 +52,7 @@ function Button({
         "active:translate-y-px disabled:pointer-events-none disabled:opacity-40",
         variants[variant],
         sizes[size],
-        className
+        className,
       )}
       {...props}
     />

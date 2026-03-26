@@ -7,8 +7,8 @@ import {
   UserRoundPlus,
   Zap,
 } from "lucide-react";
-import type { ActivityEntry as ActivityEntryType } from "@/types/dashboard";
-import { cn } from "@/lib/utils";
+import type { ActivityEntry as ActivityEntryType } from "@/types";
+import { cn } from "@/lib";
 
 const ICONS = {
   lead: <UserRoundPlus size={13} />,
@@ -61,18 +61,21 @@ function MessageWithHighlights({
 }) {
   if (!highlights?.length) return <>{message}</>;
 
-  const parts: { text: string; type?: string }[] = [];
+  // Split message into plain and highlighted parts
   let rest = message;
+  const parts = [];
 
   for (const h of highlights) {
     const i = rest.indexOf(h.text);
     if (i === -1) continue;
-    if (i > 0) parts.push({ text: rest.slice(0, i) });
+
+    parts.push({ text: rest.slice(0, i) });
     parts.push({ text: h.text, type: h.type });
     rest = rest.slice(i + h.text.length);
   }
 
-  if (rest) parts.push({ text: rest });
+  parts.push({ text: rest });
+  console.log({ parts });
 
   return (
     <>

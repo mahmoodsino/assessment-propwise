@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import type { Period } from "@/types/dashboard";
+import { cn } from "@/lib";
+import type { Period } from "@/types";
 
 const tabs = [
   { label: "Today", value: "today" },
@@ -27,9 +27,12 @@ export function DateFilterTabs({ value, onChange }: Props) {
     const container = containerRef.current;
     const active = activeRef.current;
     if (!container || !active) return;
-    const cr = container.getBoundingClientRect();
-    const ar = active.getBoundingClientRect();
-    setIndicator({ left: ar.left - cr.left, width: ar.width });
+    const containerR = container.getBoundingClientRect();
+    const activeR = active.getBoundingClientRect();
+    setIndicator({
+      left: activeR.left - containerR.left,
+      width: activeR.width,
+    });
   }, [value]);
 
   return (
@@ -38,7 +41,6 @@ export function DateFilterTabs({ value, onChange }: Props) {
         ref={containerRef}
         className="relative flex items-center gap-0.5 p-1 rounded-lg bg-[var(--color-bg-subtle)] w-fit"
       >
-        {/* Animated sliding indicator */}
         <div
           className="absolute top-1 bottom-1 rounded-lg bg-[var(--color-bg-default)] shadow-sm transition-all duration-200 ease-in-out"
           style={{ left: indicator.left, width: indicator.width }}
@@ -52,17 +54,6 @@ export function DateFilterTabs({ value, onChange }: Props) {
               ref={isActive ? activeRef : undefined}
               type="button"
               onClick={() => onChange(tab.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  onChange(tab.value);
-                }
-                if (e.key === "ArrowRight" && tabs[index + 1])
-                  onChange(tabs[index + 1].value);
-                if (e.key === "ArrowLeft" && tabs[index - 1])
-                  onChange(tabs[index - 1].value);
-              }}
-              aria-pressed={isActive}
               className={cn(
                 "relative z-10 px-4 py-1 rounded-lg text-[13px] font-[450] transition-colors duration-200 whitespace-nowrap",
                 "focus:outline-none focus-visible:ring-2",

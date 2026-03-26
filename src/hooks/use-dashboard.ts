@@ -3,14 +3,14 @@
 import { useAtom, useSetAtom } from "jotai";
 import { useCallback, useEffect } from "react";
 import { toast } from "sonner";
-import { fetchDashboardData } from "@/lib/mock-api";
+import { fetchDashboardData } from "@/lib";
 import {
   activePeriodAtom,
   dashboardDataAtom,
   hasErrorAtom,
   isLoadingAtom,
 } from "@/store";
-import type { Period } from "@/types/dashboard";
+import type { Period } from "@/types";
 
 const periodLabel: Record<Period, string> = {
   today: "Today",
