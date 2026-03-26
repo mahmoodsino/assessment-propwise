@@ -198,7 +198,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
             </Avatar>
 
             <div className="flex-1 min-w-0 text-left">
-              <p className="text-[12px] font-semibold text-[var(--color-content-emphasis)] truncate leading-tight">
+              <p className="text-xs font-semibold text-[var(--color-content-emphasis)] truncate leading-tight">
                 Lina Rahman
               </p>
               <div className="flex items-center gap-1">
@@ -246,7 +246,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                   />
                 </div>
                 <div>
-                  <p className="text-[12.5px] font-semibold text-[var(--color-content-emphasis)] leading-tight">
+                  <p className="text-xs font-semibold text-[var(--color-content-emphasis)] leading-tight">
                     Atlas Estates
                   </p>
                   <p className="text-[10.5px] text-[var(--color-content-muted)] leading-tight">
@@ -257,7 +257,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 
               {/* Online status */}
               <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-[var(--color-border-subtle)]">
-                <div className="flex items-center gap-1.5 text-[12px] text-[var(--color-content-default)]">
+                <div className="flex items-center gap-1.5 text-xs text-[var(--color-content-default)]">
                   <span className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
                   Online
                 </div>
@@ -268,11 +268,11 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 
               {/* Menu items */}
               <div className="py-1">
-                <button className="flex items-center gap-2.5 w-full px-3.5 py-2 text-[12.5px] text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)] transition-colors text-left">
+                <button className="flex items-center gap-2.5 w-full px-3.5 py-2 text-xs text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)] transition-colors text-left">
                   <User size={13} className="shrink-0" />
                   My Profile
                 </button>
-                <button className="flex items-center justify-between w-full px-3.5 py-2 text-[12.5px] text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)] transition-colors text-left">
+                <button className="flex items-center justify-between w-full px-3.5 py-2 text-xs text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)] transition-colors text-left">
                   <span className="flex items-center gap-2.5">
                     <Bell size={13} className="shrink-0" />
                     Notifications
@@ -284,7 +284,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                     2
                   </Badge>
                 </button>
-                <button className="flex items-center gap-2.5 w-full px-3.5 py-2 text-[12.5px] text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)] transition-colors text-left">
+                <button className="flex items-center gap-2.5 w-full px-3.5 py-2 text-xs text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)] transition-colors text-left">
                   <HelpCircle size={13} className="shrink-0" />
                   Help & Support
                 </button>
@@ -292,7 +292,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 
               {/* Sign out — separated with border only */}
               <div className="border-t border-[var(--color-border-subtle)]">
-                <button className="flex items-center gap-2.5 w-full px-3.5 py-2 text-[12.5px] text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)] transition-colors text-left">
+                <button className="flex items-center gap-2.5 w-full px-3.5 py-2 text-xs text-[var(--color-content-default)] hover:bg-[var(--color-bg-subtle)] transition-colors text-left">
                   <LogOut size={13} className="shrink-0" />
                   Sign out
                 </button>
@@ -313,7 +313,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
               placeholder="Search..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="flex-1 bg-transparent text-[12px] text-[var(--color-content-default)] placeholder:text-[var(--color-content-muted)] outline-none min-w-0"
+              className="flex-1 bg-transparent text-xs text-[var(--color-content-default)] placeholder:text-[var(--color-content-muted)] outline-none min-w-0"
             />
             <span className="text-[10px] text-[var(--color-content-muted)] shrink-0 font-mono bg-white border  px-1 rounded">
               ⌘K

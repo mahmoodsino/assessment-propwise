@@ -106,7 +106,7 @@ export function TaskItem({ task, onToggle }: Props) {
       {!task.completed && task.priority && (
         <span
           className={cn(
-            "text-[12px] font-semibold shrink-0 mt-0.5",
+            "text-xs font-semibold shrink-0 mt-0.5",
             priorityColor[task.priority],
           )}
         >
