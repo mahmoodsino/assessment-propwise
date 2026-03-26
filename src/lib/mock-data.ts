@@ -200,18 +200,18 @@ const todayData: DashboardData = {
 function mutate(data: DashboardData, multiplier: number): DashboardData {
   return {
     ...data,
-    kpis: data.kpis.map((k) => ({
-      ...k,
-      sparklineData: k.sparklineData.map((v) =>
-        Math.round(v * multiplier * (0.85 + Math.random() * 0.3)),
+    kpis: data.kpis.map((kpi) => ({
+      ...kpi,
+      sparklineData: kpi.sparklineData.map((value) =>
+        Math.round(value * multiplier * (0.85 + Math.random() * 0.3)),
       ),
     })),
     revenue: {
       ...data.revenue,
-      data: data.revenue.data.map((d) => ({
-        ...d,
-        thisYear: Math.round(d.thisYear * multiplier),
-        lastYear: Math.round(d.lastYear * multiplier),
+      data: data.revenue.data.map((data) => ({
+        ...data,
+        thisYear: Math.round(data.thisYear * multiplier),
+        lastYear: Math.round(data.lastYear * multiplier),
       })),
     },
   };

@@ -151,7 +151,6 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
 
   return (
     <>
-      {/* Mobile overlay */}
       <div
         className={cn(
           "fixed inset-0 bg-black/50 z-30 sm:hidden transition-opacity duration-300",
@@ -172,7 +171,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
             : "-translate-x-full sm:translate-x-0",
         )}
       >
-        {/* ── Profile ── */}
+        {/*  Profile */}
         <div className="px-3 pt-4 pb-3 relative">
           <button
             ref={profileBtnRef}
@@ -302,7 +301,7 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           )}
         </div>
 
-        {/* ── Search ── */}
+        {/*  Search  */}
         <div className="px-3 pb-2">
           <div className="flex items-center gap-2 px-2.5 py-1.5 bg-white rounded-lg border border-[var(--color-border-subtle)]">
             <Search
@@ -322,9 +321,8 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           </div>
         </div>
 
-        {/* ── Nav ── */}
+        {/*  Nav  */}
         <nav className="flex-1 overflow-y-auto px-2 py-1 scrollbar-none">
-          {/* Dashboard — above all sections */}
           {topItems.map((item) => {
             const active = pathname === item.href;
             return (
@@ -353,8 +351,8 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
             );
           })}
 
-          {navGroups.map((group, gi) => (
-            <div key={gi} className={gi > 0 ? "mt-4" : "mt-3"}>
+          {navGroups.map((group, i) => (
+            <div key={i} className={i > 0 ? "mt-4" : "mt-3"}>
               {group.heading && (
                 <p className="px-2.5 mb-1 text-[var(--color-content-subtle)] text-xs uppercase tracking-widest">
                   {group.heading}
@@ -401,7 +399,6 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           ))}
         </nav>
 
-        {/* ── Bottom nav ── */}
         <div className="px-2 py-3 border-t border-[var(--color-border-subtle)]">
           {bottomItems.map((item) => {
             const active = pathname === item.href;
@@ -432,7 +429,6 @@ export function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           })}
         </div>
 
-        {/* Mobile close */}
         <Button
           variant="ghost"
           size="icon-sm"
