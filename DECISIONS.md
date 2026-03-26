@@ -7,7 +7,7 @@
 ### Tech Stack
 
 **Tailwind CSS 3.x**
-The assignment specifies Tailwind CSS 3.x. The project was initially scaffolded with Tailwind v4 and downgraded to v3 to meet requirements. A `postcss.config.mjs` file with ESM syntax is used since the project uses `"type": "module"`.
+The assignment specifies Tailwind CSS 3.x. The project was initially scaffolded with Tailwind v4 and downgraded to v3 to meet requirements. A `postcss.config.js` file is used for PostCSS configuration.
 
 **Sonner for Toast**
 Used Sonner as recommended in the assignment. Default Sonner styling was fully replaced with a custom `ToastItem` component using `toast.custom()` to match the design system spec exactly — dark background for neutral/info/success, light red for errors.
@@ -18,6 +18,19 @@ The assignment mentions shadcn/ui as primitives. We use `radix-ui` directly (the
 ---
 
 ### Responsive Design
+
+**Breakpoints**
+Custom breakpoint scale defined in `tailwind.config.ts`, replacing Tailwind's defaults:
+
+| Token      | Width  | Targets                      |
+| ---------- | ------ | ---------------------------- |
+| `mobile`   | 380px  | Small phones                 |
+| `tablet-s` | 744px  | Small tablets / large phones |
+| `tablet-m` | 834px  | Mid-size tablets             |
+| `sm`       | 1280px | Desktop (baseline)           |
+| `md`       | 1440px | Large desktop                |
+| `lg`       | 1680px | Wide desktop                 |
+| `xl`       | 2000px | Ultra-wide                   |
 
 **Sidebar behavior**
 
@@ -43,25 +56,22 @@ The assignment mentions shadcn/ui as primitives. We use `radix-ui` directly (the
 **Charts**
 
 - Recharts `ResponsiveContainer` handles chart resizing automatically
-- Y-axis labels are hidden on mobile to save space
 
 ---
 
 ### Design System
 
-**Color tokens**
-All colors use CSS custom properties defined in `globals.css` with light and dark mode values. Components reference `var(--color-*)` directly in Tailwind arbitrary values.
+**Colors**
+Two-layer system: a static primitive palette (`brand`, `grey`, `stone` scales) defined in `tailwind.config.ts`, and semantic CSS custom properties defined in `globals.css` (e.g. `--color-bg-subtle`, `--color-content-muted`). Components always reference semantic tokens via Tailwind arbitrary values like `bg-[var(--color-bg-default)]` — never raw hex or primitive scales directly. Dark mode overrides are handled entirely by redefining the same tokens inside the `.dark` class, so no `dark:` prefixes are needed in component code.
 
 **Typography**
-
-- Inter is used as the primary font (body, UI elements) per the design system
-- Figtree is registered as `font-figtree` for headings where specified
+Inter is the primary font (body, UI elements). Figtree is defined as a secondary font family in `tailwind.config.ts` and imported in `globals.css`, available for use where specified by the design.
 
 **Custom icons**
 The design system includes custom PropWise icons not available in Lucide. These are implemented as React SVG components in `src/components/icons/` with `currentColor` so they inherit text color from their parent.
 
 **Dark mode**
-Implemented using `next-themes` with `attribute="class"`. The `.dark` class on `<html>` triggers CSS variable overrides defined in `globals.css`. No `dark:` Tailwind prefixes are needed since colors reference CSS variables that automatically switch.
+Implemented using `next-themes` with `attribute="class"`. See Colors — dark mode is handled entirely via `.dark` CSS variable overrides, so no `dark:` Tailwind prefixes are needed in component code.
 
 ---
 
